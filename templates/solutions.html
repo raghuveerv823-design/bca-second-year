@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uploaded Solutions</title>
+    <title>Subject-Wise Solutions</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Class Solutions & Notes</h1>
-        <a href="/" class="btn">Back to Home</a>
+        <h1>BCA 2nd Year - Subject Solutions & Notes</h1>
+        <a href="/" class="btn" style="margin-bottom: 20px;">Back to Home</a>
         
-        <ul style="margin-top: 20px;">
-            {% for file in files %}
-                <li>
-                    <a href="{{ url_for('uploaded_file', filename=file) }}" target="_blank">{{ file }}</a>
-                </li>
-            {% else %}
-                <p>No solutions uploaded yet. Upload PDFs via the Admin Panel.</p>
-            {% endfor %}
-        </ul>
+        {% for subj_key, info in subjects_data.items() %}
+            <div class="subject-card" style="margin-top: 20px;">
+                <h3 style="color: #2b580c; border-bottom: 2px solid #e2dac9; padding-bottom: 8px;">{{ info.name }}</h3>
+                <ul>
+                    {% for file in info.files %}
+                        <li>
+                            <a href="{{ url_for('uploaded_file', subject=subj_key, filename=file) }}" target="_blank">📄 {{ file }}</a>
+                        </li>
+                    {% else %}
+                        <p style="color: #777; font-size: 14px; font-style: italic;">No solutions uploaded for this subject yet.</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
     </div>
 </body>
 </html>
