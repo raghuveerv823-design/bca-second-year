@@ -3,52 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCA 2nd Year - Syllabus</title>
+    <title>BCA 2nd Year - Syllabus & Units</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>BCA 2nd Year Subjects & Syllabus</h1>
-        <a href="/" class="btn">Back to Home</a>
+        <h1>BCA 2nd Year - Detailed Syllabus & Units</h1>
+        <a href="/" class="btn" style="margin-bottom: 20px;">Back to Home</a>
 
+        <!-- 1. Data Communication and Computer Network -->
         <div class="subject-card">
-            <h2>1. Data Communication and Computer Network (Core-4)</h2>
-            <p><strong>Modules:</strong> Network Topologies, Transmission Media, OSI & TCP/IP Reference Models, Switching & Routing.</p>
+            <h3>1. Data Communication and Computer Network (Core-4)</h3>
+            <p><strong>Module I:</strong> Oral communication systems (Shruti, Smriti), Messenger systems (Doot Pranali), Panini's grammar (Ashtadhyayi), Vedic chanting methods.</p>
+            <p><strong>Module II:</strong> Network goals, structure, services, centralized/distributed models, and Topologies (Bus, Star, Ring, Tree, Hybrid).</p>
+            <p><strong>Module III:</strong> Transmission media (UTP, STP, Coaxial, Fiberoptics), communication satellites, analog/digital transmission, and switching techniques.</p>
+            <p><strong>Module IV:</strong> LAN & WAN overview, media, topology, speed, distance, cost, and IEEE standards.</p>
+            <p><strong>Module V & VI:</strong> OSI Reference Model (7 layers), Network Layer routing, gateways, bridges, routers, and TCP/IP model.</p>
+            <a href="{{ url_for('static', filename='syllabus/data_comm.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
 
+        <!-- 2. Database Management Systems Using PL/SQL -->
         <div class="subject-card">
-            <h2>2. Database Management Systems Using PL/SQL (Core-5)</h2>
-            <p><strong>Modules:</strong> ER Modeling, Relational Algebra, Normalization (1NF, 2NF, 3NF), SQL Queries, PL/SQL Cursors & Triggers.</p>
+            <h3>2. Database Management Systems Using PL/SQL (Core-5)</h3>
+            <p><strong>Module I:</strong> Introduction to DBMS, Database System Architecture, Data Independence, ER Model concepts, Entity sets, Attributes, Keys.</p>
+            <p><strong>Module II:</strong> Relational Model, Relational Algebra, Relational Calculus, Integrity Constraints.</p>
+            <p><strong>Module III:</strong> Database Design & Normalization: Functional Dependencies, 1NF, 2NF, 3NF, BCNF.</p>
+            <p><strong>Module IV:</strong> Structured Query Language (SQL): DDL, DML, DCL commands, Joins, Subqueries, Views, Indexes.</p>
+            <p><strong>Module V:</strong> PL/SQL: Control structures, Cursors, Stored Procedures, Functions, and Triggers.</p>
+            <a href="{{ url_for('static', filename='syllabus/dbms.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
 
+        <!-- 3. Computer Graphics -->
         <div class="subject-card">
-            <h2>3. Computer Graphics (DSE-1(A))</h2>
-            <p><strong>Modules:</strong> Raster/Vector Displays, Scan Conversion Algorithms (Line, Circle, Ellipse), 2D/3D Transformations, Animation.</p>
+            <h3>3. Computer Graphics (DSE-1(A))</h3>
+            <p><strong>Module I & II:</strong> Historical Background, contributions of Indian scientists (Pingala, Narasimha Raghavan, etc.), Interactive and Passive Graphics.</p>
+            <p><strong>Module III:</strong> Graphic Systems (CRT, Random Scan vs Raster Scan, Flat Panel Displays) and Input-Output Devices.</p>
+            <p><strong>Module IV:</strong> Scan Conversion (DDA line algorithm, Bresenham's circle algorithm), filled area primitives, 2D transformations, and animation.</p>
+            <p><strong>Module V:</strong> 3D Computer Graphics, 3D transformations, and hidden surface removal algorithms (Z-Buffer, Painter's algorithm).</p>
+            <a href="{{ url_for('static', filename='syllabus/computer_graphics.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
 
+        <!-- 4. Python Programming -->
         <div class="subject-card">
-            <h2>4. Python Programming (DSE-2(A))</h2>
-            <p><strong>Modules:</strong> Python Basics, Control Structures, Data Structures, File Handling, OOPs, Database Connectivity.</p>
+            <h3>4. Python Programming (DSE-2(A))</h3>
+            <p><strong>Module I:</strong> Introduction to Python, features, variables, data types, operators, and expression evaluation.</p>
+            <p><strong>Module II:</strong> Control structures (if-else, loops), functions, scope of variables, modules, and packages.</p>
+            <p><strong>Module III:</strong> Data Structures: Lists, Tuples, Dictionaries, Sets, and operations on them.</p>
+            <p><strong>Module IV:</strong> File Handling (read/write text and binary files), Exception Handling (try-except-finally).</p>
+            <p><strong>Module V:</strong> Object-Oriented Programming in Python (Classes, Objects, Inheritance, Polymorphism) and Database Connectivity.</p>
+            <a href="{{ url_for('static', filename='syllabus/python.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
 
+        <!-- 5. Optimization Technique -->
         <div class="subject-card">
-            <h2>5. Optimization Technique (M-3)</h2>
-            <p><strong>Modules:</strong> Operations Research, Linear Programming Problem (LPP), Simplex Method, Transportation & Assignment Problems.</p>
+            <h3>5. Optimization Technique (M-3)</h3>
+            <p><strong>Module I:</strong> Introduction to Operations Research and Optimization Techniques.</p>
+            <p><strong>Module II:</strong> Linear Programming Problem (LPP): Mathematical formulation, Graphical method, Simplex method.</p>
+            <p><strong>Module III:</strong> Transportation Problems: Initial Basic Feasible Solution (North-West Corner, Least Cost, Vogel's Approximation) and Optimality test.</p>
+            <p><strong>Module IV:</strong> Assignment Problems: Hungarian method for solving assignment problems.</p>
+            <p><strong>Module V:</strong> Network Scheduling: CPM (Critical Path Method) and PERT (Program Evaluation and Review Technique).</p>
+            <a href="{{ url_for('static', filename='syllabus/optimization.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
 
+        <!-- 6. Artificial Intelligence -->
         <div class="subject-card">
-            <h2>6. Artificial Intelligence (M-4)</h2>
-            <p><strong>Modules:</strong> Indian Knowledge System, Intelligent Agents, Search Algorithms (BFS, DFS, A*), Knowledge Representation, Expert Systems.</p>
+            <h3>6. Artificial Intelligence (M-4)</h3>
+            <p><strong>Module I:</strong> Indian Knowledge System (Panini's Ashtadhyayi, Pingala's binary concepts, Nyaya philosophy).</p>
+            <p><strong>Module II:</strong> Introduction to AI, intelligent agents, rationalism, environment types, agent architectures, and knowledge-based agents.</p>
+            <p><strong>Module III:</strong> Uninformed and Informed Search techniques (BFS, DFS, Best-first, A*, AO*, Minimax, Alpha-Beta pruning, Genetic algorithms).</p>
+            <p><strong>Module IV:</strong> Knowledge representation using propositional/predicate logic, planning (STRIPS), and probabilistic reasoning.</p>
+            <p><strong>Module V:</strong> Applications in Machine Learning, Computer Vision, Robotics, NLP, Deep Neural Networks, and Expert Systems.</p>
+            <a href="{{ url_for('static', filename='syllabus/artificial_intelligence.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
 
+        <!-- 7. Web Designing -->
         <div class="subject-card">
-            <h2>7. Web Designing (MD-2)</h2>
-            <p><strong>Modules:</strong> HTML5, CSS3, JavaScript Basics, Responsive Design, CSS Flexbox/Grid, Bootstrap Framework.</p>
+            <h3>7. Web Designing (MD-2)</h3>
+            <p><strong>Module I:</strong> Introduction to Web Design, Web Standards, HTML5 structure, semantic tags, tables, and lists.</p>
+            <p><strong>Module II:</strong> CSS3 Styling: Selectors, colors, fonts, box model, Flexbox, and CSS Grid layout.</p>
+            <p><strong>Module III:</strong> Responsive Web Design: Media queries, mobile-first design, and frameworks (Bootstrap basics).</p>
+            <p><strong>Module IV:</strong> JavaScript Basics: Variables, data types, functions, DOM manipulation, and event handling.</p>
+            <p><strong>Module V:</strong> Client-side form validation, hosting basics, and deploying web pages.</p>
+            <a href="{{ url_for('static', filename='syllabus/web_designing.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
 
+        <!-- 8. E-Commerce -->
         <div class="subject-card">
-            <h2>8. E-Commerce (SEC)</h2>
-            <p><strong>Modules:</strong> E-Commerce Models (B2B, B2C), Electronic Payment Systems, Web Security, Digital Marketing, Legal & Ethical Issues.</p>
+            <h3>8. E-Commerce (SEC)</h3>
+            <p><strong>Module I:</strong> Introduction to E-Commerce, Electronic Commerce Framework, Anatomy of E-Commerce applications.</p>
+            <p><strong>Module II:</strong> E-Commerce Business Models: B2B, B2C, C2C, C2B, and E-governance models.</p>
+            <p><strong>Module III:</strong> Electronic Payment Systems: Credit/Debit cards, E-wallets, UPI, Smart cards, and Payment Gateways security.</p>
+            <p><strong>Module IV:</strong> E-Security: Threats, encryption, digital signatures, SSL, firewalls, and security protocols.</p>
+            <p><strong>Module V:</strong> Digital Marketing, SEO basics, and Legal/Ethical aspects of E-Commerce.</p>
+            <a href="{{ url_for('static', filename='syllabus/ecommerce.pdf') }}" target="_blank" class="btn" style="background-color: #2b580c; font-size: 13px; margin-top: 10px;">📄 View Detailed Syllabus PDF</a>
         </div>
     </div>
 </body>
