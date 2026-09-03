@@ -1,1 +1,100 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Upload PDF</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4ece4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dashboard-box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            border-top: 5px solid #4a7c59;
+        }
+        h2 {
+            color: #1a2b2b;
+            margin-top: 0;
+            text-align: center;
+        }
+        .success {
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px dashed #4a7c59;
+            border-radius: 6px;
+            background-color: #faf8f5;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4a7c59;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3b6347;
+        }
+        .links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 0.85em;
+        }
+        .links a {
+            color: #4a7c59;
+            text-decoration: none;
+        }
+        .links a.logout {
+            color: #e84118;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-box">
+        <h2>PDF Upload Panel</h2>
+        
+        {% if success %}
+            <div class="success">{{ success }}</div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="pdf_file">Apni PDF File select karein:</label>
+            <input type="file" name="pdf_file" accept=".pdf" required>
+            <button type="submit">Upload PDF</button>
+        </form>
+
+        <div class="links">
+            <a href="/" target="_blank">View Website</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
