@@ -3,100 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solutions & Notes - BCA 2nd Year</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4ece4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .back-link {
-            color: #4a7c59;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #1a2b2b;
-            border-bottom: 2px solid #e0ddd5;
-            padding-bottom: 10px;
-        }
-        .subject-section {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 5px solid #4a7c59;
-        }
-        h3 {
-            margin-top: 0;
-            color: #1a2b2b;
-        }
-        .file-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #faf8f5;
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
-        .file-name {
-            font-size: 0.9em;
-            color: #333;
-            word-break: break-all;
-            margin-right: 10px;
-        }
-        .pdf-btn {
-            padding: 5px 10px;
-            background-color: #4a7c59;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.85em;
-            white-space: nowrap;
-        }
-        .pdf-btn:hover {
-            background-color: #3b6347;
-        }
-        .no-files {
-            font-size: 0.85em;
-            color: #777;
-            font-style: italic;
-            margin-top: 5px;
-        }
-    </style>
+    <title>Uploaded Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <a href="/" class="back-link">← Back to Dashboard</a>
+        <h1>Class Solutions & Notes</h1>
+        <a href="/" class="btn">Back to Home</a>
         
-        <h1>Solutions & Notes (Subject-wise)</h1>
-
-        {% for code, name in subjects.items() %}
-            <div class="subject-section">
-                <h3>{{ loop.index }}. {{ name }}</h3>
-                
-                {% if categorized[code] %}
-                    {% for file in categorized[code] %}
-                        <div class="file-item">
-                            <span class="file-name">{{ file.replace(code + '_', '') }}</span>
-                            <a href="{{ url_for('static', filename='solutions/' + file) }}" class="pdf-btn" target="_blank">View / Download</a>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="no-files">Abhi is subject ka koi solution/notes upload nahi kiya gaya hai.</div>
-                {% endif %}
-            </div>
-        {% endfor %}
+        <ul style="margin-top: 20px;">
+            {% for file in files %}
+                <li>
+                    <a href="{{ url_for('uploaded_file', filename=file) }}" target="_blank">{{ file }}</a>
+                </li>
+            {% else %}
+                <p>No solutions uploaded yet. Upload PDFs via the Admin Panel.</p>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
