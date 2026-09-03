@@ -1,4 +1,3 @@
-
 import os
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session
 
@@ -7,6 +6,7 @@ app.secret_key = 'bca_second_year_secret_key'
 
 ADMIN_PASSWORD = "veerji9301"
 SOLUTIONS_FOLDER = 'solutions'
+SYLLABUS_FOLDER = 'static/syllabus'
 
 # All 8 BCA 2nd Year Subjects Mapping
 SUBJECTS = {
@@ -20,8 +20,9 @@ SUBJECTS = {
     "ecommerce": "8. E-Commerce (SEC)"
 }
 
-# Create main solutions folder and subfolders for each subject
+# Create folders for solutions and syllabus
 os.makedirs(SOLUTIONS_FOLDER, exist_ok=True)
+os.makedirs(SYLLABUS_FOLDER, exist_ok=True)
 for subj_key in SUBJECTS.keys():
     os.makedirs(os.path.join(SOLUTIONS_FOLDER, subj_key), exist_ok=True)
 
@@ -31,11 +32,10 @@ def home():
 
 @app.route('/syllabus')
 def syllabus():
-    return render_template('syllabus.html')
+    return render_template('syllabus.html', subjects=SUBJECTS)
 
 @app.route('/solutions')
 def solutions():
-    # Gather files grouped by subject
     subjects_data = {}
     for subj_key, subj_name in SUBJECTS.items():
         subj_path = os.path.join(SOLUTIONS_FOLDER, subj_key)
@@ -72,12 +72,44 @@ def admin():
                     file.save(filepath)
                     message = f"Solution PDF successfully uploaded to {SUBJECTS[subject]}!"
 
-            return render_template('admin_dashboard.html', subjects=SUBJECTS, message=message)
-
     if session.get('logged_in'):
-        return render_template('admin_dashboard.html', subjects=SUBJECTS)
+        all_files = []
+        for subj_key, subj_name in SUBJECTS.items():
+            subj_path = os.path.join(SOLUTIONS_FOLDER, subj_key)
+            if os.path.exists(subj_path):
+                for f in os.listdir(subj_path):
+                    all_files.append({'subject_key': subj_key, 'subject_name': subj_name, 'filename': f})
+        return render_template('admin_dashboard.html', subjects=SUBJECTS, all_files=all_files, message=message)
         
     return render_template('admin_login.html')
+
+@app.route('/admin/delete/<subject>/<filename>')
+def delete_file(subject, filename):
+    if not session.get('logged_in'):
+        return redirect(url_for('admin'))
+    
+    file_path = os.path.join(SOLUTIONS_FOLDER, subject, filename)
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    return redirect(url_for('admin'))
+
+@app.route('/admin/edit/<subject>/<filename>', methods=['GET', 'POST'])
+def edit_file(subject, filename):
+    if not session.get('logged_in'):
+        return redirect(url_for('admin'))
+        
+    if request.method == 'POST':
+        new_filename = request.form.get('new_filename')
+        new_subject = request.form.get('new_subject')
+        
+        old_path = os.path.join(SOLUTIONS_FOLDER, subject, filename)
+        new_path = os.path.join(SOLUTIONS_FOLDER, new_subject, new_filename)
+        
+        if os.path.exists(old_path):
+            os.rename(old_path, new_path)
+        return redirect(url_for('admin'))
+        
+    return render_template('admin_edit.html', subject=subject, filename=filename, subjects=SUBJECTS)
 
 @app.route('/logout')
 def logout():
