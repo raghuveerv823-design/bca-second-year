@@ -2,12 +2,9 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session
 
 app = Flask(__name__)
-app.secret_key = 'bca_second_year_secure_key'
+app.secret_key = 'bca_second_year_secret_key'
 
-# Admin Password
 ADMIN_PASSWORD = "veerji9301"
-
-# Solutions folder setup for dynamic uploads
 SOLUTIONS_FOLDER = 'solutions'
 os.makedirs(SOLUTIONS_FOLDER, exist_ok=True)
 app.config['SOLUTIONS_FOLDER'] = SOLUTIONS_FOLDER
@@ -21,14 +18,12 @@ def syllabus():
     return render_template('syllabus.html')
 
 @app.route('/solutions')
-def list_solutions():
-    # Folder se saari uploaded files ki list nikalna
+def solutions():
     files = os.listdir(app.config['SOLUTIONS_FOLDER'])
     return render_template('solutions.html', files=files)
 
 @app.route('/solutions/<filename>')
 def uploaded_file(filename):
-    # Uploaded PDF ko view/download karne ke liye route
     return send_from_directory(app.config['SOLUTIONS_FOLDER'], filename)
 
 @app.route('/admin', methods=['GET', 'POST'])
@@ -36,14 +31,11 @@ def admin():
     message = ""
     if request.method == 'POST':
         password = request.form.get('password')
-        
-        # Agar password match ho gaya
         if password == ADMIN_PASSWORD:
             session['logged_in'] = True
         elif not session.get('logged_in'):
             return render_template('admin_login.html', error="Wrong Password!")
 
-        # Agar logged in hai aur file upload ki gayi hai
         if session.get('logged_in') and 'file' in request.files:
             file = request.files['file']
             if file and file.filename != '':
@@ -66,4 +58,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
+    
