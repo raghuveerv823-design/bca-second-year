@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Upload PDF</title>
+    <title>Solutions & Notes Admin</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 90vh;
         }
         .dashboard-box {
             background-color: #ffffff;
@@ -23,7 +22,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             border-top: 5px solid #4a7c59;
         }
         h2 {
@@ -40,11 +39,16 @@
             text-align: center;
             font-size: 0.9em;
         }
-        input[type="file"] {
+        label {
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #1a2b2b;
+        }
+        select, input[type="file"] {
             width: 100%;
             padding: 10px;
-            margin: 15px 0;
-            border: 1px dashed #4a7c59;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ccc;
             border-radius: 6px;
             background-color: #faf8f5;
             box-sizing: border-box;
@@ -79,20 +83,29 @@
 </head>
 <body>
     <div class="dashboard-box">
-        <h2>PDF Upload Panel</h2>
+        <h2>Solutions & Notes Admin</h2>
         
         {% if success %}
             <div class="success">{{ success }}</div>
         {% endif %}
 
         <form method="POST" enctype="multipart/form-data">
-            <label for="pdf_file">Apni PDF File select karein:</label>
+            <label for="subject">Subject Chuniye:</label>
+            <select name="subject" required>
+                <option value="" disabled selected>-- Select Subject --</option>
+                {% for code, name in subjects.items() %}
+                    <option value="{{ code }}">{{ name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="pdf_file">Solution/Notes PDF File select karein:</label>
             <input type="file" name="pdf_file" accept=".pdf" required>
-            <button type="submit">Upload PDF</button>
+            
+            <button type="submit">Upload Solution PDF</button>
         </form>
 
         <div class="links">
-            <a href="/" target="_blank">View Website</a>
+            <a href="/solutions" target="_blank">View Public Solutions</a>
             <a href="/logout" class="logout">Logout</a>
         </div>
     </div>
