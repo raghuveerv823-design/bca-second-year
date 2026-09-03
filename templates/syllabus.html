@@ -1,105 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syllabus - BCA 2nd Year</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4ece4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .back-link {
-            color: #4a7c59;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #1a2b2b;
-            border-bottom: 2px solid #e0ddd5;
-            padding-bottom: 10px;
-        }
-        .subject-box {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 5px solid #4a7c59;
-        }
-        h3 {
-            margin-top: 0;
-            color: #1a2b2b;
-        }
-        .pdf-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 6px 12px;
-            background-color: #4a7c59;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9em;
-        }
-        .pdf-btn:hover {
-            background-color: #3b6347;
-        }
-    </style>
+    <title>BCA 2nd Year - Syllabus & Units</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <a href="/" class="back-link">← Back to Dashboard</a>
-        
-        <h1>BCA 2nd Year Official Syllabus & PDFs</h1>
+        <h1>BCA 2nd Year Syllabus & Units</h1>
+        <a href="/" class="btn">Back to Home</a>
 
-        <div class="subject-box">
-            <h3>1. Data Communication and Computer Networks</h3>
-            <a href="{{ url_for('static', filename='Core (4)-Data Communication and Computer Network.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>1. Data Communication and Computer Network (Core-4)</h2>
+            <p><strong>Modules Covered:</strong> Network Topologies, Transmission Media, OSI & TCP/IP Layers, Routing.</p>
+            <a href="/static/syllabus/data_comm.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
 
-        <div class="subject-box" style="border-left-color: #5b8fb9;">
-            <h3>2. Database Management Systems Using PL/SQL</h3>
-            <a href="{{ url_for('static', filename='Core (5)-Database Management Systems Using PL/SQL.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>2. Database Management Systems Using PL/SQL (Core-5)</h2>
+            <p><strong>Modules Covered:</strong> ER Models, Normalization, SQL, PL/SQL Cursors & Triggers.</p>
+            <a href="/static/syllabus/dbms.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
 
-        <div class="subject-box" style="border-left-color: #d97757;">
-            <h3>3. Computer Graphics</h3>
-            <a href="{{ url_for('static', filename='DSE-1(A)-Computer Graphics.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>3. Computer Graphics (DSE-1)</h2>
+            <p><strong>Modules Covered:</strong> Raster/Vector displays, Scan Conversion algorithms, 2D/3D Transformations.</p>
+            <a href="/static/syllabus/cg.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
 
-        <div class="subject-box" style="border-left-color: #8c7ae6;">
-            <h3>4. Python Programming</h3>
-            <a href="{{ url_for('static', filename='DSE-2(A)-Python Programming.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>4. Python Programming (DSE-2)</h2>
+            <p><strong>Modules Covered:</strong> Data Structures, OOPs in Python, File Handling, Libraries.</p>
+            <a href="/static/syllabus/python.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
 
-        <div class="subject-box" style="border-left-color: #e1b12c;">
-            <h3>5. Optimization Technique</h3>
-            <a href="{{ url_for('static', filename='M-3-Optimization Technique.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>5. Optimization Technique (Minor M-3)</h2>
+            <p><strong>Modules Covered:</strong> LPP Formulation, Simplex Method, Transportation, Assignment.</p>
+            <a href="/static/syllabus/opt.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
 
-        <div class="subject-box" style="border-left-color: #44bd32;">
-            <h3>6. Artificial Intelligence</h3>
-            <a href="{{ url_for('static', filename='M-4 Artificial Intelligence.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>6. Artificial Intelligence (Minor M-4)</h2>
+            <p><strong>Modules Covered:</strong> Intelligent Agents, Search Algorithms (BFS, DFS, A*), Knowledge Representation.</p>
+            <a href="/static/syllabus/ai.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
 
-        <div class="subject-box" style="border-left-color: #e84118;">
-            <h3>7. Web Designing</h3>
-            <a href="{{ url_for('static', filename='MD 2-Web Designing.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>7. Web Designing (MD-2)</h2>
+            <p><strong>Modules Covered:</strong> HTML5, CSS3, JavaScript, Responsive Design, Bootstrap.</p>
+            <a href="/static/syllabus/web.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
 
-        <div class="subject-box" style="border-left-color: #00a8ff;">
-            <h3>8. E-Commerce</h3>
-            <a href="{{ url_for('static', filename='SEC-E-Commerce.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        <div class="subject-card">
+            <h2>8. E-Commerce (SEC)</h2>
+            <p><strong>Modules Covered:</strong> E-Commerce Models, Payment Gateways, Digital Security, Marketing.</p>
+            <a href="/static/syllabus/ecommerce.pdf" target="_blank" class="btn-pdf">View / Download Syllabus PDF</a>
         </div>
     </div>
 </body>
