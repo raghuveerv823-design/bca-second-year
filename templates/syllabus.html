@@ -1,1 +1,106 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus - BCA 2nd Year</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4ece4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .back-link {
+            color: #4a7c59;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #1a2b2b;
+            border-bottom: 2px solid #e0ddd5;
+            padding-bottom: 10px;
+        }
+        .subject-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid #4a7c59;
+        }
+        h3 {
+            margin-top: 0;
+            color: #1a2b2b;
+        }
+        .pdf-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 12px;
+            background-color: #4a7c59;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+        .pdf-btn:hover {
+            background-color: #3b6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Dashboard</a>
+        
+        <h1>BCA 2nd Year Official Syllabus & PDFs</h1>
+
+        <div class="subject-box">
+            <h3>1. Data Communication and Computer Networks</h3>
+            <a href="{{ url_for('static', filename='Core (4)-Data Communication and Computer Network.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+
+        <div class="subject-box" style="border-left-color: #5b8fb9;">
+            <h3>2. Database Management Systems Using PL/SQL</h3>
+            <a href="{{ url_for('static', filename='Core (5)-Database Management Systems Using PL/SQL.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+
+        <div class="subject-box" style="border-left-color: #d97757;">
+            <h3>3. Computer Graphics</h3>
+            <a href="{{ url_for('static', filename='DSE-1(A)-Computer Graphics.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+
+        <div class="subject-box" style="border-left-color: #8c7ae6;">
+            <h3>4. Python Programming</h3>
+            <a href="{{ url_for('static', filename='DSE-2(A)-Python Programming.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+
+        <div class="subject-box" style="border-left-color: #e1b12c;">
+            <h3>5. Optimization Technique</h3>
+            <a href="{{ url_for('static', filename='M-3-Optimization Technique.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+
+        <div class="subject-box" style="border-left-color: #44bd32;">
+            <h3>6. Artificial Intelligence</h3>
+            <a href="{{ url_for('static', filename='M-4 Artificial Intelligence.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+
+        <div class="subject-box" style="border-left-color: #e84118;">
+            <h3>7. Web Designing</h3>
+            <a href="{{ url_for('static', filename='MD 2-Web Designing.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+
+        <div class="subject-box" style="border-left-color: #00a8ff;">
+            <h3>8. E-Commerce</h3>
+            <a href="{{ url_for('static', filename='SEC-E-Commerce.pdf') }}" class="pdf-btn" target="_blank">View PDF Syllabus</a>
+        </div>
+    </div>
+</body>
+</html>
